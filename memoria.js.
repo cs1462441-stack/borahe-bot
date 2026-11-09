@@ -1,0 +1,29 @@
+
+const conversas = new Map();
+
+export function guardarMensagem(grupo, autor, mensagem) {
+  if (!conversas.has(grupo)) {
+    conversas.set(grupo, []);
+  }
+
+  const historico = conversas.get(grupo);
+
+  historico.push({
+    autor,
+    mensagem,
+    data: new Date().toISOString()
+  });
+
+  // Guarda somente as 20 mensagens mais recentes.
+  if (historico.length > 20) {
+    historico.shift();
+  }
+}
+
+export function consultarMemoria(grupo) {
+  return conversas.get(grupo) || [];
+}
+
+export function limparMemoria(grupo) {
+  conversas.delete(grupo);
+}
