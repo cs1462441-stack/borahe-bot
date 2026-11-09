@@ -1,4 +1,3 @@
-
 import { PERSONALIDADE } from "./personalidade.js";
 
 console.log("💜 Borahe está iniciando...");
@@ -13,5 +12,5 @@ MENSAGEM RECEBIDA:
 ${mensagem}
 
 Responda de forma natural, respeitosa e divertida.
-`;
+  `;
 }
