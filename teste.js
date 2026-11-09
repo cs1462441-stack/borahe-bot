@@ -4,22 +4,15 @@ import { responder } from "./conversa.js";
 import assert from "node:assert/strict";
 
 const mensagem = "Oi, Borahe! Vamos falar de BTS?";
-const resultado = criarPrompt(mensagem);
+const prompt = criarPrompt(mensagem);
 
-assert.ok(resultado.includes("Borahe"));
-assert.ok(resultado.includes("BTS"));
-assert.ok(resultado.includes(mensagem));
+assert.ok(prompt.includes("Borahe"));
+assert.ok(prompt.includes(mensagem));
 
-const respostaBTS = responder("Vamos falar de BTS!");
-assert.ok(respostaBTS.includes("BTS"));
+assert.ok(responder("BTS").includes("BTS"));
+assert.ok(responder("Namjoon").includes("Namjoon"));
+assert.ok(responder("Oi").includes("Borahe"));
 
-const respostaRM = responder("Namjoon!");
-assert.ok(respostaRM.includes("Namjoon"));
-
-const respostaOi = responder("Oi!");
-assert.ok(respostaOi.includes("Borahe"));
-
-console.log("💜 TESTE DO BORAHE");
+console.log("💜 Borahe testado com sucesso!");
 console.log("Personalidade carregada!");
-console.log("Respostas verificadas!");
-console.log("Todos os testes passaram!");
+console.log("Conversas verificadas!");
